@@ -56,3 +56,11 @@ def date(txt):
                        [/-]       # Then find / or -
                        \d{1,}$    # Then find 1 or more digits
                     """, txt, re.VERBOSE)
+
+
+def hard_date(txt):
+    return re.match(r"^\d{4} \w{3,} \d{2}|^\w{3}\. \d{1,2}, \d{4}", txt)
+
+
+def email(txt):
+    return re.match(r"^[\w\.]+@\w+\.\w{2,3}", txt)

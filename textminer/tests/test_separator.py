@@ -29,7 +29,6 @@ def test_phone_numbers(input, expected):
     assert s.phone_number(input) == expected
 
 
-@xfail
 @params("input,expected", [
     ("$4", {"currency": "$", "amount": 4.0}),
     ("$19", {"currency": "$", "amount": 19.0}),
@@ -87,7 +86,7 @@ def test_date(input, expected):
 
 ## HARD MODE BEGINS
 
-@xfail
+
 @params("input,expected", [
     ("9/4/1976", {"month": 9, "day": 4, "year": 1976}),
     ("1976-09-04", {"month": 9, "day": 4, "year": 1976}),
@@ -100,16 +99,15 @@ def test_dates(input, expected):
     assert s.date(input) == expected
 
 
-@xfail
 @params("input,expected", [
     ("2014 Jan 01", {"month": 1, "day": 1, "year": 2014}),
     ("2014 January 01", {"month": 1, "day": 1, "year": 2014}),
-    ("Jan. 1, 2015", {"month": 1, "day": 1, "year": 2014}),
+    ("Jan. 1, 2015", {"month": 1, "day": 1, "year": 2015}),
     ("07/40/2015", None),
     ("02/30/2015", None),
 ])
 def test_hard_date(input, expected):
-    assert s.date(input) == expected
+    assert s.hard_date(input) == expected
 
 
 @xfail

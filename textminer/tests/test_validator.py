@@ -135,16 +135,16 @@ def test_date():
 ## HARD MODE BEGINS
 
 
-@xfail
 def test_hard_date():
-    assert v.date("2014 Jan 01")
-    assert v.date("2014 January 01")
-    assert v.date("Jan. 1, 2015")
-    assert not v.date("07/40/2015")
-    assert not v.date("02/30/2015")
+    assert v.hard_date("2014 Jan 01")
+    assert v.hard_date("2014 January 01")
+    assert v.hard_date("Jan. 1, 2015")
+    assert not v.hard_date("07/40/2015")
+    assert not v.hard_date("02/30/2015")
 
 
-@xfail
+
+
 def test_email():
     """Some of the emails listed as invalid are actually valid according to
     the email spec, but we will not accept them."""
@@ -162,6 +162,7 @@ def test_email():
     assert not v.email("legros.curley")
     assert not v.email("mertz.net")
     assert not v.email("bonita43@")
+
 
 
 @xfail
